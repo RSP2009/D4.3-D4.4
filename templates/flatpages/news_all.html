@@ -1,23 +1,5 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Все новости</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--    <h2>Здесь все новости</h2>-->
-<!--    {%for i in data%}-->
-<!--    <h3>Новость {{forloop.counter}}</h3>-->
-<!--    <h4>Заголовок: <i>{{i.title}}</i>; Текст:<i>{{i.text}}</i></h4>-->
-<!--    <br>-->
-<!--    <br>-->
-<!--    {%endfor%}-->
+{% extends 'flatpages/default.html' %}
 
-<!--</body>-->
-<!--</html>-->
-
-{% extends 'default.html' %}
-{% load custom_filters %}
 {% block title %}
     {{ news.title }}
 {% endblock title %}
@@ -26,10 +8,10 @@
     Всего публикаций: {{news|length}}
 {% if news %}
   {% for n in news %}
-    <h5>{{ n.title|censor }}</h5>
-    {{n.dataCreation|date:'M d Y'}}
-    {{ n.text|truncatechars:50|censor }}
-    <a href="{% url 'news_separately' pk=n.pk %}">Подробнее</a>
+    <h5>{{ n.title }}</h5>
+    {{n.dateCreation|date:'M d Y'}}
+    {{ n.text|truncatechars:50 }}
+    <a href=" ">Подробнее</a>
 
 {% endfor %}
     {% else %}

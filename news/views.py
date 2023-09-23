@@ -19,7 +19,7 @@ from datetime import datetime
 
 class NewsList(ListView):
     model = Post
-    template_name = 'news_all.html'  # 'default.html'  'news.html'
+    template_name = 'flatpages/news_all.html'  # 'default.html'  'news.html'
     context_object_name = 'news'
     queryset = Post.objects.order_by('-id')
 
@@ -31,5 +31,6 @@ class NewsList(ListView):
 
 class NewsDetail(DetailView):
     model = Post
-    template_name ='news_separately.html'
+    template_name ='flatpages/news_separately.html'
     context_object_name = 'news_separately'
+

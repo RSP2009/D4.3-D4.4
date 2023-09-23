@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'news.apps.NewsConfig',
     # 'accounts.apps.AccountsConfig',
 
-    'news',
+    # 'news',
 ]
 SITE_ID = 1
 
