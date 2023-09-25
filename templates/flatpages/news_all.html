@@ -1,4 +1,7 @@
 {% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+
 
 {% block title %}
     {{ news.title }}
@@ -6,14 +9,39 @@
 {% block content %}
     <h3>Лента новостей</h3>
     Всего публикаций: {{news|length}}
+<br>
+    <h4> {{ time_now|date:'d M Y' }} </h4>
 {% if news %}
+    <table class = 'table'>
+        <tr>
+            <th scope="col">
+                Заголовок
+            </th>
+            <th scope="col">
+                Дата публикации
+            </th>
+            <th scope="col">
+                Текст новости
+            </th>
+        </tr>
+
   {% for n in news %}
-    <h5>{{ n.title }}</h5>
-    {{n.dateCreation|date:'M d Y'}}
-    {{ n.text|truncatechars:50 }}
-    <a href=" ">Подробнее</a>
+        <tr>
+            <td>
+                <h6>{{ n.title|Censor }}</h6>
+            </td>
+            <td>
+                {{n.dateCreation|date:'M d Y'}}
+            </td>
+            <td>
+                {{ n.text|truncatechars:50|Censor }}
+                <a href=" ">Подробнее</a>
+            </td>
+        </tr>
+
 
 {% endfor %}
+    </table>
     {% else %}
      новостей нет
 {% endif %}
