@@ -1,6 +1,5 @@
 {% extends 'flatpages/default.html' %}
-{% load custom_filters %}
-
+<!--{% load custom_filters %}-->
 
 
 {% block title %}
@@ -12,6 +11,12 @@
 <br>
     <h4> {{ time_now|date:'d M Y' }} </h4>
 {% if news %}
+<!--перед таблицей ставим форму для поиска-->
+<form method = "GET">
+    {{ filter.gorm}}
+    <!--форму от фильтров за нас сделает Django, а кнопку надо делать самим-->
+    <input class = 'btn btn-primary' type="submit" value="найти">
+</form>
     <table class = 'table'>
         <tr>
             <th scope="col">
