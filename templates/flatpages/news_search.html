@@ -13,7 +13,7 @@
 {% if news %}
 <!--перед таблицей ставим форму для поиска-->
 <form method = "GET">
-    {{ filter.gorm}}
+    {{ filter.form}}
     <!--форму от фильтров за нас сделает Django, а кнопку надо делать самим-->
     <input class = 'btn btn-primary' type="submit" value="найти">
 </form>
