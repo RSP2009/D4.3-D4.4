@@ -13,7 +13,7 @@
 {% if filter.qs %}
 <!--перед таблицей ставим форму для поиска-->
 <form method = "GET">
-    {{ filter.gs.form}}
+    {{ filter.form}}
     <!--форму от фильтров за нас сделает Django, а кнопку надо делать самим-->
     <input class = 'btn btn-primary' type="submit" value="найти">
 </form>
@@ -30,7 +30,7 @@
             </th>
         </tr>
 
-  {% for n in filter.qs. %}
+  {% for n in filter.qs %}
         <tr>
             <td>
                 <h6>{{ n.title|Censor }}</h6>
