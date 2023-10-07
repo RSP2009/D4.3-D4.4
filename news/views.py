@@ -27,12 +27,12 @@ class NewsList(ListView):
     model = Post  # указываем модель, объекты которой мы будем выводить
     template_name = 'flatpages/news_search.html'  # указываем имя шаблона HTML, в котором все инструкции, как должны вывестись наши объекты
     context_object_name = 'news' # 'это имя списка, в котором будут лежать все объекты
-    queryset = ['-dateCreation']  # сортировка по дате в порядке убывания
+    queryset = Post.objects.order_by['-dateCreation']  # сортировка по дате в порядке убывания
     paginate_by = 1  # поставим постраничный вывод в один элемент
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['filter'] = PostFilter(self.reguests.GET, queryset = self.get_queryset())
+        context['filter'] = PostFilter(self.requests.GET, queryset = self.get_queryset())
         # context['value1'] = None
         return context
 

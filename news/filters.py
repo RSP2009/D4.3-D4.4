@@ -9,7 +9,7 @@ class PostFilter(FilterSet):
         # поля, которые будем фильтровать (имена беруться из моделей)
         # fields = {'author', 'dateCreation', 'title'}
         fields = {
-            'author': ['icontains'], # что-то похожее...
+            'author': ['exact'], # что-то похожее...
             'title': ['icontains'],
             'dateCreation': ['gt']  # дата должна быть больше или равна той, что указал пользователь
         }

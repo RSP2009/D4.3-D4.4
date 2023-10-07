@@ -3,17 +3,17 @@
 
 
 {% block title %}
-    {{ news.title }}
+    {{ filter.qs.title }}
 {% endblock title %}
 {% block content %}
     <h3>Лента новостей</h3>
-    Всего публикаций: {{news|length}}
+    Всего публикаций: {{filter.qs.|length}}
 <br>
     <h4> {{ time_now|date:'d M Y' }} </h4>
-{% if news %}
+{% if filter.qs %}
 <!--перед таблицей ставим форму для поиска-->
 <form method = "GET">
-    {{ filter.form}}
+    {{ filter.gs.form}}
     <!--форму от фильтров за нас сделает Django, а кнопку надо делать самим-->
     <input class = 'btn btn-primary' type="submit" value="найти">
 </form>
@@ -30,7 +30,7 @@
             </th>
         </tr>
 
-  {% for n in news %}
+  {% for n in filter.qs. %}
         <tr>
             <td>
                 <h6>{{ n.title|Censor }}</h6>

@@ -25,4 +25,5 @@ urlpatterns = [
     # path('forloop.counter/', views.news),
     path('pages/', include('django.contrib.flatpages.urls')),
     path('news/', include('news.urls')),
+    #path('filter/', include('news.urls')),
 ]
