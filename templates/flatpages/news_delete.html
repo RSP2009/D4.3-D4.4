@@ -1,0 +1,24 @@
+{% extends 'flatpages/default.html' %}
+{% block title %} 
+  News delete
+{% endblock title %} 
+
+{% block content %}
+
+<h3>Delete this news?</h3>
+<div class="card">
+  <div class="card-header">
+    <h3>{{ post.title }}</h3>
+    <div>
+      Date: <span class="badge bg-info">{{ post.dateCreation }}</span> Type:
+      <span class="badge bg-info">{{ post.get_type_display }}</span>
+    </div>
+  </div>
+  <div class="card-body">{{ post.text }}</div>
+</div>
+<form method="POST">
+  {% csrf_token %}
+  <input class="btn btn-danger my-3" type="submit" value="Delete" />
+</form>
+
+{% endblock content %}
